@@ -9,12 +9,14 @@ groups:
         since: 2026
         degree: PhD
       - name: Xinxing Yang
+        photo: /images/people/xinxing-yang.jpg
         role: Postdoctoral Scholar
         since: 2026
         degree: PhD
   - title: Research Assistants
     people:
       - name: Sofia Angel
+        photo: /images/people/sofia-angel.jpg
         role: Research Assistant (Clinical)
         since: 2027
       - name: Yusheng Tan

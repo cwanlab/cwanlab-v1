@@ -35,7 +35,7 @@ inline = (f'<svg class="logo-cw" viewBox="{vb}" overflow="visible" aria-hidden="
           + "".join(c for c in cells if 'class="d"' in c) + "</svg>\n")
 open(os.path.join(out, "..", "_includes", "logo-cw.svg"), "w").write(inline)
 
-# ---- banner: wide pastel spatial-cell field ----
+# ---- theme illustrations for the home page ----
 def field(w, h, centers, n, seed, cols, edge=40, stroke="#b3aaa5", m=14, accents=(), grid=10, sigma=None):
     rnd = random.Random(seed)
     sigma = sigma or min(w, h) / 5
@@ -57,20 +57,20 @@ def field(w, h, centers, n, seed, cols, edge=40, stroke="#b3aaa5", m=14, accents
             f'<g fill="#ebe6e2">{lattice}</g>'
             f'<g stroke="{stroke}" stroke-opacity=".35" stroke-width="1" stroke-linecap="round">' + "".join(lines) + "</g>" + "".join(dots) + "</svg>")
 
-# rose | blue | sage niches left->right = the three theme columns under the banner; sand/lilac only as stray accents
-pastel = ["#ecbfc3", "#b2d0ed", "#add7c4", "#e2c7a8", "#d8c3e5"]
-centers = [(70, 150, 0), (190, 80, 0), (300, 160, 0), (440, 90, 1), (540, 170, 1), (640, 80, 1), (770, 150, 2), (870, 70, 2), (950, 170, 2)]
-open(os.path.join(out, "banner-cells.svg"), "w").write(field(1000, 232, centers, 22, 11, pastel, sigma=40, accents=(3, 4)))
 
-# ---- featured-paper art (used where we don't reuse a figure from the paper) ----
-os.makedirs(os.path.join(out, "featured"), exist_ok=True)
-# Lancet Oncology 2024: patients fall into seven irAE clusters -> seven soft cell niches
-seven = ["#ecbfc3", "#b2d0ed", "#add7c4", "#e2c7a8", "#d8c3e5", "#c9d7e8", "#f0d3c9"]
-ring = [(240 + 150 * math.cos(a), 150 + 92 * math.sin(a), i)
-        for i, a in enumerate(math.radians(-90 + k * 360 / 7) for k in range(7))]
-open(os.path.join(out, "featured", "lancet-irae-clusters.svg"), "w").write(
-    field(480, 300, ring, 26, 31, seven, edge=30, sigma=24))
-# AAAI 2023 placeholder until the paper's Fig 1 is added: one dense "source" niche in a sparse field
-src = ["#b2d0ed", "#94b0cf", "#ecbfc3"]
-open(os.path.join(out, "featured", "aaai-esi-placeholder.svg"), "w").write(
-    field(480, 300, [(170, 140, 0), (300, 170, 1), (240, 110, 2), (360, 90, 0), (110, 220, 1)], 22, 41, src, edge=30, sigma=30))
+def theme(name, cols, seed, centers, extra=""):
+    svg = field(480, 300, centers, 20, seed, cols, edge=34, sigma=34, m=16)
+    open(os.path.join(out, f"theme-{name}.svg"), "w").write(svg.replace("</svg>", extra + "</svg>"))
+
+# graph learning: one connected network spanning the frame
+theme("graph", ["#ecbfc3", "#d9a1a8", "#e2c7a8"], 51,
+      [(90, 90, 0), (200, 170, 1), (310, 100, 0), (400, 210, 1), (140, 230, 2), (270, 240, 0)])
+# spatial biology: a tumour niche with a dashed boundary, immune cells outside it
+theme("spatial", ["#b2d0ed", "#8fb3d9", "#d8c3e5"], 52,
+      [(190, 150, 0), (230, 170, 1), (160, 130, 0), (380, 90, 2), (400, 230, 2), (70, 250, 2)],
+      '<ellipse cx="200" cy="152" rx="112" ry="84" fill="none" stroke="#8fb3d9" stroke-width="1.2" stroke-dasharray="3 5"/>')
+# clinical AI: three data sources converging on one decision
+hub = "".join(f'<line x1="{x}" y1="{y}" x2="372" y2="150" stroke="#86bba2" stroke-opacity=".55" stroke-width="1.2"/>' for x, y in [(110, 70), (90, 160), (120, 245)])
+theme("clinical", ["#add7c4", "#e2c7a8", "#b2d0ed"], 53,
+      [(110, 70, 0), (90, 160, 1), (120, 245, 2)],
+      hub + '<circle cx="372" cy="150" r="15" fill="#fff" stroke="#86bba2" stroke-width="1.4"/><circle cx="372" cy="150" r="6.5" fill="#86bba2"/>')

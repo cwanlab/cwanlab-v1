@@ -3,6 +3,13 @@
 Redesign of [cwanlab.github.io](https://cwanlab.github.io), served from
 <https://tuner12.github.io/cwanlab.github.io/>. Plain Jekyll, built by GitHub Pages — no build step needed.
 
+## Design
+
+White paper, hairline rules, serif display type (Newsreader) over Lato, and one maroon accent.
+The page structure follows the [Rajpurkar Lab](https://www.rajpurkarlab.hms.harvard.edu/) site;
+the dot-grid "cw" logo (after the [UW IDL](https://idl.uw.edu/) mark) and the pastel cell
+illustrations are our own.
+
 ## Editing content
 
 Almost everything lives in `_data/` — edit the YAML and push.
@@ -18,7 +25,7 @@ Almost everything lives in `_data/` — edit the YAML and push.
 | PI bio / CV | `cv.md` |
 | Site name, PI info, navigation | `_config.yml` |
 
-To regenerate the logo and banner art:
+To regenerate the logo and theme illustrations:
 
 ```bash
 python3 scripts/make_art.py images

@@ -1,26 +1,30 @@
 ---
 title: Research
+eyebrow: What we study
+lede: Interpretable AI for spatial biology and precision oncology, from new algorithms to tools that clinicians can use.
 permalink: /publications/
 redirect_from:
   - /research/
 ---
-<div class="themes themes-full">
+<section class="themes">
   {% for t in site.data.research.themes %}
-  <div class="theme t-{{ t.id }}">
-    <h3><span class="dot"></span>{{ t.title }}</h3>
+  <div class="theme">
+    <p class="label"><span class="dot t-{{ t.id }}"></span>0{{ forloop.index }} · {{ t.short }}</p>
+    <h2>{{ t.title }}</h2>
     <ul>{% for i in t.items %}<li>{{ i }}</li>{% endfor %}</ul>
   </div>
   {% endfor %}
-</div>
+</section>
 
-<h2 class="caps-head">Papers <a class="head-link" href="{{ site.pi.scholar }}">(Google Scholar)</a></h2>
+<section class="papers">
+<p class="caps-head">Papers <a class="head-link" href="{{ site.pi.scholar }}">Google Scholar ↗</a></p>
 
 <div class="filters" data-filter-target=".pub" role="group" aria-label="Filter publications">
   <button class="chip" aria-pressed="true" data-filter="all">All</button>
   {% for g in site.data.research.groups %}
   <button class="chip" aria-pressed="false" data-filter="{{ g.id }}"><span class="dot t-{{ g.id }}"></span>{{ g.title }}</button>
   {% endfor %}
-  <input class="search" type="search" placeholder="Search" aria-label="Search publications">
+  <input class="search" type="search" placeholder="Search papers" aria-label="Search publications">
 </div>
 
 {% assign by_year = site.data.publications | group_by: "year" | sort: "name" | reverse %}
@@ -33,3 +37,4 @@ redirect_from:
 </section>
 {% endfor %}
 <p class="empty muted" hidden>No papers match.</p>
+</section>

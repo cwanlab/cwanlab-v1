@@ -1,5 +1,6 @@
 themes:
   - id: graph
+    short: Graph learning
     title: Graph and Deep Learning for Biomedical Data
     blurb: Learning representations that respect the structure of biology and medicine.
     items:
@@ -7,6 +8,7 @@ themes:
       - Self-Supervised and Contrastive Representation Learning
       - Large Language and Vision Models (LLMs and LVMs) for Biomedical Applications
   - id: spatial
+    short: Spatial biology
     title: Computational Geometry and Spatial Biology
     blurb: Modeling how cells are arranged in tissue, and what that arrangement means for disease.
     items:
@@ -14,6 +16,7 @@ themes:
       - Single-Cell Spatial Analysis and Interpretation
       - 3D Spatial Modeling Methods for Tissue and Cellular Structures
   - id: clinical
+    short: Clinical AI
     title: Multimodal Integration and Clinical Decision Support
     blurb: Bringing records, images and omics together to support decisions at the bedside.
     items:

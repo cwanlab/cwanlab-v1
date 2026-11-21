@@ -1,49 +1,55 @@
 ---
 title: People
+eyebrow: Who we are
+lede: Computer scientists, clinicians, and students working together on AI for precision medicine.
 permalink: /group/
 redirect_from:
   - /people/
 ---
-<h2 class="caps-head">Principal investigator</h2>
-<div class="member pi">
-  <img class="portrait" src="{{ site.pi.photo | relative_url }}" alt="{{ site.pi.name }}" width="160" height="160">
-  <div>
-    <h3>{{ site.pi.name }}</h3>
-    <p class="role">{{ site.pi.title }}, {{ site.pi.employer }}</p>
-    <p>{{ site.pi.note }}. AI/ML, Spatial Biology, Precision Oncology.</p>
-    <p class="pub-links"><a href="{{ '/cv/' | relative_url }}">Bio & CV</a> | <a href="mailto:{{ site.pi.email }}">Email</a> | <a href="{{ site.pi.scholar }}">Scholar</a></p>
-  </div>
-</div>
-
-<h2 class="caps-head">Members</h2>
-{% assign i = 0 %}
-{% for g in site.data.members.groups %}
-<h3 class="group-head">{{ g.title }}</h3>
-<div class="members">
-  {% for m in g.people %}
-  {% assign parts = m.name | split: " " %}
-  {% assign i = i | plus: 1 %}
-  <div class="member">
-    {% if m.photo %}
-      <img class="portrait" src="{{ m.photo | relative_url }}" alt="{{ m.name }}">
-    {% else %}
-      <span class="portrait initials c{{ i | modulo: 4 }}" aria-hidden="true"><b>{{ parts.first | slice: 0 }}{{ parts.last | slice: 0 }}</b></span>
-    {% endif %}
-    <div>
-      <h3>{{ m.name }}{% if m.degree %}, {{ m.degree }}{% endif %}</h3>
-      <p class="role">{{ m.role }}</p>
-      <p class="muted">Since {{ m.since }}{% if m.note %} · {{ m.note }}{% endif %}</p>
+<section class="team-group">
+  <p class="label">Principal investigator</p>
+  <div class="team-grid">
+    <div class="person wide">
+      <img class="portrait" src="{{ site.pi.photo | relative_url }}" alt="{{ site.pi.name }}" width="144" height="144">
+      <div>
+        <h3>{{ site.pi.name }}</h3>
+        <p class="role">{{ site.pi.title }} · {{ site.pi.note }}</p>
+        <p class="links"><a href="{{ '/cv/' | relative_url }}">Bio & CV</a><a href="{{ site.pi.scholar }}">Scholar</a><a href="mailto:{{ site.pi.email }}">Email</a></p>
+      </div>
     </div>
   </div>
-  {% endfor %}
-</div>
+</section>
+
+{% assign i = 0 %}
+{% for g in site.data.members.groups %}
+<section class="team-group">
+  <p class="label">{{ g.title }}</p>
+  <div class="team-grid">
+    {% for m in g.people %}
+    {% assign parts = m.name | split: " " %}
+    {% assign i = i | plus: 1 %}
+    <div class="person">
+      {% if m.photo %}
+      <img class="portrait" src="{{ m.photo | relative_url }}" alt="{{ m.name }}" loading="lazy" width="144" height="144">
+      {% else %}
+      <span class="portrait initials c{{ i | modulo: 4 }}" aria-hidden="true">{{ parts.first | slice: 0 }}{{ parts.last | slice: 0 }}</span>
+      {% endif %}
+      <div>
+        <h3>{{ m.name }}{% if m.degree %}, {{ m.degree }}{% endif %}</h3>
+        <p class="role">{{ m.role }}{% if m.note %} · {{ m.note }}{% endif %}</p>
+        <p class="since">Since {{ m.since }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 {% endfor %}
 
-<h2 class="caps-head">Alumni</h2>
-<ul class="alumni">
-  {% for a in site.data.members.alumni %}
-  <li><strong>{{ a.name }}</strong> ({{ a.year }}) — {{ a.was }}. <span class="next">Next: {{ a.next }}</span></li>
-  {% endfor %}
-</ul>
-
-<p class="recruit"><strong>Join us.</strong> We are recruiting postdoctoral researchers and research assistants in AI, LLMs, and spatial biology, and welcome UChicago students interested in research. <a href="mailto:{{ site.pi.email }}?subject=Joining%20CWan%20Lab">Get in touch →</a></p>
+<section class="team-group">
+  <p class="label">Alumni</p>
+  <ul class="alumni">
+    {% for a in site.data.members.alumni %}
+    <li><strong>{{ a.name }}</strong> — {{ a.was }} · {{ a.year }} · {{ a.next }}</li>
+    {% endfor %}
+  </ul>
+</section>

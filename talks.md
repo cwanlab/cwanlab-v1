@@ -1,11 +1,13 @@
 ---
 title: Talks & Teaching
+eyebrow: Sharing the work
+lede: Conference tutorials, invited talks, and courses.
 permalink: /talks/
 redirect_from:
   - /teaching/
 ---
 
-<h2 class="caps-head" id="tutorials">Conference tutorials</h2>
+<p class="caps-head" id="tutorials">Conference tutorials</p>
 
 <div class="tutorials">
 <article>
@@ -26,7 +28,7 @@ redirect_from:
 </article>
 </div>
 
-<h2 class="caps-head" id="invited">Invited talks</h2>
+<p class="caps-head" id="invited">Invited talks</p>
 
 <ul class="plain-list">
   <li><span class="yr">2026</span> Histopathology-Centered Computational Analysis of Spatial Omics — Northwestern University</li>
@@ -41,7 +43,7 @@ redirect_from:
   <li><span class="yr">2021</span> Edge Sparsification for Graphs via Meta Learning — Yu Lab, Department of Biomedical Informatics, Harvard Medical School</li>
 </ul>
 
-<h2 class="caps-head" id="teaching">Teaching</h2>
+<p class="caps-head" id="teaching">Teaching</p>
 
 <article class="course">
   <h3>AI in Biomedicine 1 <span class="muted"><em>— planned, Winter 2026</em></span></h3>
