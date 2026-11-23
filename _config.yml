@@ -1,14 +1,10 @@
 # ---------------------------------------------------------------------------
 # CWan Lab website
 #
-# Sandbox copy: served from https://tuner12.github.io/cwanlab.github.io/
-# To move this design back to the lab's own repo (cwanlab/cwanlab.github.io),
-# change only the two lines below to:
-#   url:     "https://cwanlab.github.io"
-#   baseurl: ""
+# `url` and `baseurl` are left unset on purpose: GitHub Pages fills them in from
+# the repository it builds, so the same files work as cwanlab.github.io/<repo>/
+# and as cwanlab.github.io itself.
 # ---------------------------------------------------------------------------
-url: "https://tuner12.github.io"
-baseurl: "/cwanlab.github.io"
 
 title: "CWan Lab"
 title_zh: "常万实验室"

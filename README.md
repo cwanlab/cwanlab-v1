@@ -1,14 +1,13 @@
-# CWan Lab website (redesign)
+# CWan Lab website (redesign, v1)
 
-Redesign of [cwanlab.github.io](https://cwanlab.github.io), served from
-<https://tuner12.github.io/cwanlab.github.io/>. Plain Jekyll, built by GitHub Pages — no build step needed.
+Redesign of [cwanlab.github.io](https://cwanlab.github.io). Plain Jekyll, built by GitHub Pages — no build step needed.
 
 ## Design
 
-White paper, hairline rules, serif display type (Newsreader) over Lato, and one maroon accent.
+White paper, hairline rules and one maroon accent. Type is one family in two cuts:
+Source Serif 4 for titles, Source Sans 3 for text and labels.
 The page structure follows the [Rajpurkar Lab](https://www.rajpurkarlab.hms.harvard.edu/) site;
-the dot-grid "cw" logo (after the [UW IDL](https://idl.uw.edu/) mark) and the pastel cell
-illustrations are our own.
+the dot-grid "cw" logo (after the [UW IDL](https://idl.uw.edu/) mark) is our own.
 
 ## Editing content
 
@@ -25,7 +24,7 @@ Almost everything lives in `_data/` — edit the YAML and push.
 | PI bio / CV | `cv.md` |
 | Site name, PI info, navigation | `_config.yml` |
 
-To regenerate the logo and theme illustrations:
+To regenerate the logo:
 
 ```bash
 python3 scripts/make_art.py images
@@ -38,6 +37,8 @@ gem install jekyll jekyll-seo-tag jekyll-sitemap jekyll-redirect-from webrick
 JEKYLL_NO_BUNDLER_REQUIRE=true jekyll serve
 ```
 
-## Moving this design to cwanlab/cwanlab.github.io
+## Where it is served
 
-Set `url: "https://cwanlab.github.io"` and `baseurl: ""` in `_config.yml`. Nothing else changes.
+`url` and `baseurl` are not set in `_config.yml`; GitHub Pages fills them in from the repository.
+The same files therefore work in any repository of the lab account (served at
+`cwanlab.github.io/<repo>/`) and in `cwanlab/cwanlab.github.io` itself.

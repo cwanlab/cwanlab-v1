@@ -10,21 +10,15 @@ redirect_from:
     <p class="eyebrow">{{ site.affiliation }}</p>
     <h1>AI for spatial biology<br>and precision medicine<span class="stop">.</span></h1>
     <p class="hero-sub">We advance the foundations of artificial intelligence and machine learning to address key challenges in health, with a focus on spatially resolved biomedical data.</p>
-    <nav class="pillar-tabs" aria-label="Research themes">
-      {% for t in site.data.research.themes %}
-      <a href="#{{ t.id }}"><span class="num">0{{ forloop.index }}</span>{{ t.short }}<span class="arr" aria-hidden="true">↓</span></a>
-      {% endfor %}
-    </nav>
   </div>
 </section>
 
 <section class="wrap pillars">
   {% for t in site.data.research.themes %}
   <article class="pillar" id="{{ t.id }}">
-    <img src="{{ '/images/theme-' | append: t.id | append: '.svg' | relative_url }}" alt="" width="480" height="300">
+    <p class="label"><span class="num">0{{ forloop.index }}</span>{{ t.short }}</p>
     <h2><a href="{{ '/publications/' | relative_url }}">{{ t.title }}<span class="arr" aria-hidden="true"> ↗</span></a></h2>
     <p>{{ t.blurb }}</p>
-    <p class="label">Focus</p>
     <ul>{% for i in t.items %}<li>{{ i }}</li>{% endfor %}</ul>
   </article>
   {% endfor %}
