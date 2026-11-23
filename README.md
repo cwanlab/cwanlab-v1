@@ -4,8 +4,8 @@ Redesign of [cwanlab.github.io](https://cwanlab.github.io). Plain Jekyll, built 
 
 ## Design
 
-White paper, hairline rules and one maroon accent. Type is one family in two cuts:
-Source Serif 4 for titles, Source Sans 3 for text and labels.
+White paper, hairline rules and one maroon accent. Type is Lato throughout:
+large titles light and slightly tight, small titles bold.
 The page structure follows the [Rajpurkar Lab](https://www.rajpurkarlab.hms.harvard.edu/) site;
 the dot-grid "cw" logo (after the [UW IDL](https://idl.uw.edu/) mark) is our own.
 
