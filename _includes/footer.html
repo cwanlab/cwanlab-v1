@@ -1,15 +1,3 @@
 <footer class="site-foot">
-  <div class="wrap foot">
-    <div>
-      <p class="foot-name">{{ site.title }} · {{ site.title_zh }}</p>
-      <p>{{ site.affiliation }}</p>
-    </div>
-    <nav class="foot-links" aria-label="Footer">
-      {% for item in site.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
-      <a href="mailto:{{ site.pi.email }}">Email</a>
-      <a href="{{ site.pi.scholar }}">Google Scholar</a>
-      <a href="https://github.com/{{ site.pi.github }}">GitHub</a>
-      <span>© {{ site.time | date: "%Y" }}</span>
-    </nav>
-  </div>
+  <p>© {{ site.time | date: "%Y" }} {{ site.title }} · {{ site.title_zh }} · {{ site.affiliation }}</p>
 </footer>

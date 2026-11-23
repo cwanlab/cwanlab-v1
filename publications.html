@@ -1,40 +1,10 @@
 ---
-title: Research
-eyebrow: What we study
-lede: Interpretable AI for spatial biology and precision oncology, from new algorithms to tools that clinicians can use.
+title: Publications
 permalink: /publications/
-redirect_from:
-  - /research/
 ---
-<section class="themes">
-  {% for t in site.data.research.themes %}
-  <div class="theme">
-    <p class="label"><span class="dot t-{{ t.id }}"></span>0{{ forloop.index }} · {{ t.short }}</p>
-    <h2>{{ t.title }}</h2>
-    <ul>{% for i in t.items %}<li>{{ i }}</li>{% endfor %}</ul>
-  </div>
-  {% endfor %}
-</section>
-
-<section class="papers">
-<p class="caps-head">Papers <a class="head-link" href="{{ site.pi.scholar }}">Google Scholar ↗</a></p>
-
-<div class="filters" data-filter-target=".pub" role="group" aria-label="Filter publications">
-  <button class="chip" aria-pressed="true" data-filter="all">All</button>
-  {% for g in site.data.research.groups %}
-  <button class="chip" aria-pressed="false" data-filter="{{ g.id }}"><span class="dot t-{{ g.id }}"></span>{{ g.title }}</button>
-  {% endfor %}
-  <input class="search" type="search" placeholder="Search papers" aria-label="Search publications">
-</div>
-
+<p class="muted">Full list on <a href="{{ site.pi.scholar }}">Google Scholar</a>. <strong>G. Wan</strong> marks the PI; * marks equal contribution.</p>
 {% assign by_year = site.data.publications | group_by: "year" | sort: "name" | reverse %}
 {% for yr in by_year %}
-<section class="pub-group">
-  <h3 class="year-head">{{ yr.name }}</h3>
-  <ol class="pubs">
-    {% for p in yr.items %}{% include pub.html p=p %}{% endfor %}
-  </ol>
-</section>
+<h2>{{ yr.name }}</h2>
+{% for p in yr.items %}{% include pub.html p=p %}{% endfor %}
 {% endfor %}
-<p class="empty muted" hidden>No papers match.</p>
-</section>

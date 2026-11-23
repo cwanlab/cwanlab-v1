@@ -1,0 +1,5 @@
+{% assign n = include.n %}
+<div class="news-entry">
+  <div class="news-date">{{ n.date | prepend: "1 " | date: "%Y/%m" }}</div>
+  <div class="news-text">{{ n.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</div>
+</div>

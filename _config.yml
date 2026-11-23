@@ -28,18 +28,20 @@ pi:
 
 # Top navigation. `url` is relative to the site root.
 nav:
-  - title: Research
-    url: /publications/
+  - title: Home
+    url: /
   - title: News
     url: /news/
-  - title: Talks & Teaching
+  - title: Research
+    url: /research/
+  - title: Talks
     url: /talks/
-  - title: Funding
-    url: /funding/
   - title: People
-    url: /group/
-  - title: About PI
-    url: /cv/
+    url: /people/
+  - title: Publications
+    url: /publications/
+  - title: Contact
+    url: /contact/
 
 markdown: kramdown
 kramdown:

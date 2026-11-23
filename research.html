@@ -1,0 +1,27 @@
+---
+title: Research
+permalink: /research/
+redirect_from:
+  - /funding/
+---
+<div class="cards">
+  {% for t in site.data.research.themes %}
+  <article class="card" id="{{ t.id }}">
+    <h2>{{ t.title }}</h2>
+    <p class="card-desc">{{ t.blurb }}</p>
+    <ul>{% for i in t.items %}<li>{{ i }}</li>{% endfor %}</ul>
+  </article>
+  {% endfor %}
+</div>
+<p class="more"><a href="{{ '/publications/' | relative_url }}">Publications →</a></p>
+
+<h2 id="funding">Funding</h2>
+<div class="funding">
+  {% for f in site.data.funding %}
+  <div class="fund">
+    <p class="fund-title"><strong>{{ f.sponsor }}</strong> · {{ f.award }}{% if f.active %} <span class="badge">Active</span>{% endif %}</p>
+    <p>{{ f.project }}</p>
+    <p class="muted">{{ f.role }} · {{ f.period }}</p>
+  </div>
+  {% endfor %}
+</div>

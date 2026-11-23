@@ -5,83 +5,28 @@ redirect_from:
   - /about/
   - /about.html
 ---
-<section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">{{ site.affiliation }}</p>
-    <h1>AI for spatial biology<br>and precision medicine<span class="stop">.</span></h1>
-    <p class="hero-sub">We advance the foundations of artificial intelligence and machine learning to address key challenges in health, with a focus on spatially resolved biomedical data.</p>
-  </div>
-</section>
-
-<section class="wrap pillars">
-  {% for t in site.data.research.themes %}
-  <article class="pillar" id="{{ t.id }}">
-    <p class="label"><span class="num">0{{ forloop.index }}</span>{{ t.short }}</p>
-    <h2><a href="{{ '/publications/' | relative_url }}">{{ t.title }}<span class="arr" aria-hidden="true"> ↗</span></a></h2>
-    <p>{{ t.blurb }}</p>
-    <ul>{% for i in t.items %}<li>{{ i }}</li>{% endfor %}</ul>
-  </article>
-  {% endfor %}
-</section>
-
-<section class="wrap selected">
-  <p class="eyebrow">Selected research</p>
-  <h2 class="section-title">Selected papers.</h2>
-  {% assign picks = site.data.publications | where_exp: "p", "p.feature" | sort: "feature.order" %}
-  <div class="selected-grid">
-    {% for p in picks limit: 1 %}
-    {% assign link = p.links.Paper | default: p.links.first[1] %}
-    {% assign g = site.data.research.groups | where: "id", p.group | first %}
-    <article class="lead">
-      <a class="figure" href="{{ link }}" tabindex="-1" aria-hidden="true"><img src="{{ p.feature.image | relative_url }}" alt="{{ p.feature.alt }}" loading="lazy"></a>
-      <p class="eyebrow">{{ g.title }}</p>
-      <h3><a href="{{ link }}">{{ p.feature.short }}<span class="arr" aria-hidden="true"> ↗</span></a></h3>
-      <p>{{ p.feature.blurb }}</p>
-      <p class="meta">{{ p.venue }} · {{ p.year }}</p>
-      {% if p.feature.credit %}<p class="credit">{{ p.feature.credit }}</p>{% endif %}
-    </article>
-    {% endfor %}
-    <div class="selected-list">
-      {% for p in picks offset: 1 %}
-      {% assign link = p.links.Paper | default: p.links.first[1] %}
-      {% assign g = site.data.research.groups | where: "id", p.group | first %}
-      <article>
-        <p class="eyebrow">{{ g.title }}</p>
-        <h3><a href="{{ link }}">{{ p.feature.short }}<span class="arr" aria-hidden="true"> ↗</span></a></h3>
-        <p>{{ p.feature.blurb }}</p>
-        <p class="meta">{{ p.venue }} · {{ p.year }}</p>
-      </article>
-      {% endfor %}
-      <p class="more-links"><a href="{{ '/publications/' | relative_url }}">All publications <span class="arr">→</span></a><a href="{{ site.pi.scholar }}">Google Scholar <span class="arr">↗</span></a></p>
+<div class="landing">
+  <div class="lockup" aria-label="{{ site.title }}, {{ site.pi.employer }}">
+    {% include logo-cw.svg %}
+    <div class="lockup-text">
+      <span class="lockup-name">{{ site.title }}</span>
+      <span class="lockup-sub">{{ site.pi.employer }}</span>
     </div>
   </div>
-</section>
 
-<section class="wrap split">
-  <div>
-    <p class="eyebrow">Lab activity</p>
-    <h2 class="section-title">Latest news.</h2>
-    <p class="more-links"><a href="{{ '/news/' | relative_url }}">All news <span class="arr">→</span></a></p>
+  <div class="quote-block">
+    <p>At CWan Lab (pronounced “Wan Lab”), we advance the foundations of artificial intelligence and machine learning to address key challenges in health, with a focus on <span class="marker">spatially resolved biomedical data</span>. Our work bridges algorithmic innovation and real-world application, developing biologically interpretable and clinically impactful models that uncover disease mechanisms and drive personalized medicine. We are part of the Institute for Population and Precision Health at the University of Chicago.</p>
   </div>
-  <ol class="news">
-    {% for n in site.data.news limit: 6 %}
-    <li class="news-item" data-tag="{{ n.tag }}">
-      <time>{{ n.date }}</time>
-      <p>{{ n.text | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-    </li>
-    {% endfor %}
-  </ol>
-</section>
 
-<section class="join" id="join">
-  <div class="wrap">
-    <div class="join-head">
-      <p class="rule-label">Join the lab</p>
-      <h2 class="section-title">We're recruiting.<br>Come build with us.</h2>
-    </div>
-    {% assign mail = 'mailto:' | append: site.pi.email | append: '?subject=Joining%20CWan%20Lab' %}
-    <a class="join-row" href="{{ mail }}"><span class="num">01</span><span class="who">Postdoctoral researchers</span><span class="what">Expertise in artificial intelligence, large language models, and spatial biology, particularly as applied to cancer and precision health.</span><span class="arr" aria-hidden="true">→</span></a>
-    <a class="join-row" href="{{ mail }}"><span class="num">02</span><span class="who">Research assistants</span><span class="what">Expertise in artificial intelligence, large language models, and spatial biology.</span><span class="arr" aria-hidden="true">→</span></a>
-    <a class="join-row" href="{{ mail }}"><span class="num">03</span><span class="who">UChicago students</span><span class="what">Students interested in conducting research are welcome to join the lab.</span><span class="arr" aria-hidden="true">→</span></a>
-  </div>
-</section>
+  <p class="recruiting">We are recruiting postdocs and research assistants in AI, large language models, and spatial biology. <a href="{{ '/contact/' | relative_url }}">Join us →</a></p>
+</div>
+
+<h2>News</h2>
+<div class="news-section">
+  {% for n in site.data.news limit: 8 %}{% include news-entry.html n=n %}{% endfor %}
+</div>
+<p class="more"><a href="{{ '/news/' | relative_url }}">All news →</a></p>
+
+<h3>Sponsors</h3>
+{% assign sponsors = site.data.funding | map: "sponsor" | uniq %}
+<p>{{ site.title }} is supported by {{ sponsors | array_to_sentence_string }}. See <a href="{{ '/research/#funding' | relative_url }}">funding</a>.</p>

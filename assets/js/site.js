@@ -1,36 +1,9 @@
-// Chip filters + search (News, Publications)
-document.querySelectorAll('.filters').forEach((bar) => {
-  const items = [...document.querySelectorAll(bar.dataset.filterTarget)];
-  const chips = [...bar.querySelectorAll('.chip')];
-  const search = bar.querySelector('.search');
-  let tag = 'all';
-
-  const apply = () => {
-    const q = (search?.value || '').trim().toLowerCase();
-    let shown = 0;
-    items.forEach((el) => {
-      const ok = (tag === 'all' || el.dataset.tag === tag) &&
-        (!q || el.textContent.toLowerCase().includes(q));
-      el.hidden = !ok;
-      if (ok) shown++;
-    });
-    // Hide empty publication groups / news years
-    document.querySelectorAll('.pub-group').forEach((g) => {
-      g.hidden = !g.querySelector('.pub:not([hidden])');
-    });
-    document.querySelectorAll('.year-head + .news').forEach((list) => {
-      list.previousElementSibling.hidden = !list.querySelector('.news-item:not([hidden])');
-    });
-    const empty = document.querySelector('.empty');
-    if (empty) empty.hidden = shown > 0;
-  };
-
-  chips.forEach((c) => c.addEventListener('click', () => {
-    chips.forEach((x) => x.setAttribute('aria-pressed', x === c));
-    tag = c.dataset.filter;
-    apply();
-  }));
-  search?.addEventListener('input', apply);
+// Light / dark theme toggle (the choice is remembered per browser).
+document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+  const dark = document.documentElement.dataset.theme !== 'dark';
+  if (dark) document.documentElement.dataset.theme = 'dark';
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
 });
 
 // Logo: a port of the idl.uw.edu mark, which is a tiny d3-force simulation.

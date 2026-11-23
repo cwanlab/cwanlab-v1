@@ -5,18 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% seo title=false %}
   <title>{% if page.title and page.url != "/" %}{{ page.title }} · {% endif %}{{ site.title }} · {{ site.title_zh }}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script>try { if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}</script>
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
   <link rel="icon" type="image/svg+xml" href="{{ site.logo | relative_url }}">
   <link rel="alternate icon" href="{{ '/images/favicon.ico' | relative_url }}">
-  <meta name="theme-color" content="#ffffff">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   {% include nav.html %}
-  <main id="main">
+  <main id="main" class="wrap">
     {{ content }}
   </main>
   {% include footer.html %}
