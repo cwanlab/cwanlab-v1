@@ -8,10 +8,10 @@ document.querySelector('.theme-toggle')?.addEventListener('click', () => {
 
 // Lab photo slideshow (photos come from _data/photos.yml).
 document.querySelectorAll('[data-carousel]').forEach((box) => {
-  const imgs = [...box.querySelectorAll('.carousel-frame img')];
+  const imgs = [...box.querySelectorAll(':scope > picture')];
   if (imgs.length < 2) return;
-  const dots = [...box.querySelectorAll('.carousel-dots span')];
-  const cap = box.querySelector('figcaption');
+  const dots = [];
+  const cap = box.querySelector('.banner-cap');
   let i = 0;
   const show = (n) => {
     i = (n + imgs.length) % imgs.length;

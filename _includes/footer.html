@@ -1,7 +1,6 @@
-<footer class="site-foot wrap">
-  <a class="to-top" href="#top"><span>Back to top</span></a>
-  <div class="foot">
-    <span>{{ site.title }} · {{ site.title_zh }} · {{ site.affiliation }}</span>
-    <span><a href="{{ site.pi.scholar }}">Google Scholar</a> · <a href="https://github.com/{{ site.pi.github }}">GitHub</a> · © {{ site.time | date: "%Y" }}</span>
+<footer class="site-foot">
+  <div class="wrap foot">
+    <div class="foot-brand"><span class="mark-logo small">{% include logo-cw.svg %}</span><span><strong>{{ site.title }}</strong> · {{ site.title_zh }}<br>{{ site.affiliation }}</span></div>
+    <div class="foot-links"><a href="mailto:{{ site.pi.email }}">Email</a><a href="{{ site.pi.scholar }}">Google Scholar</a><a href="https://github.com/{{ site.pi.github }}">GitHub</a><span>© {{ site.time | date: "%Y" }}</span></div>
   </div>
 </footer>

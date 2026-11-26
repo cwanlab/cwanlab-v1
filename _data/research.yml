@@ -3,6 +3,7 @@ themes:
     short: Graph learning
     short_title: Machine Learning
     home: [Graph Neural Networks, Representation Learning, Large Language & Vision Models]
+    image: /images/papers/crop-cpath.jpg
     title: Graph and Deep Learning for Biomedical Data
     blurb: Learning representations that respect the structure of biology and medicine.
     items:
@@ -13,6 +14,7 @@ themes:
     short: Spatial biology
     short_title: Spatial Biology
     home: [Tissue Microenvironments, Single-Cell Spatial Analysis, 3D Spatial Modeling]
+    image: /images/papers/crop-spatial.jpg
     title: Computational Geometry and Spatial Biology
     blurb: Modeling how cells are arranged in tissue, and what that arrangement means for disease.
     items:
@@ -23,6 +25,7 @@ themes:
     short: Clinical AI
     short_title: Clinical Applications
     home: ["EHR, Histopathology & Multi-Omics", Treatment Response & Progression, Clinical Decision Support]
+    image: /images/papers/crop-sleep.jpg
     title: Multimodal Integration and Clinical Decision Support
     blurb: Bringing records, images and omics together to support decisions at the bedside.
     items:

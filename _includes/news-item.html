@@ -1,0 +1,2 @@
+{% assign n = include.n %}{% assign y = n.date | split: " " | last %}
+<li><time>{{ n.date | split: " " | first | remove: "," }} {{ y }}</time><span>{{ n.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></li>

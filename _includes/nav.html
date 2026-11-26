@@ -2,7 +2,7 @@
   <div class="wrap bar">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
       <span class="mark-logo">{% include logo-cw.svg %}</span>
-      <span class="brand-name"><b class="c">C</b><b class="w">W</b>an Lab</span>
+      <span class="brand-name">{{ site.title }}</span>
     </a>
     <nav class="nav" aria-label="Main">
       <ul>
@@ -10,7 +10,6 @@
         <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
         {% endif %}{% endfor %}
       </ul>
-      <span class="nav-sep" aria-hidden="true"></span>
       <button class="theme-toggle" type="button" aria-label="Switch light or dark theme">{% include icons/contrast.svg %}</button>
     </nav>
   </div>

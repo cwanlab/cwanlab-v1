@@ -5,14 +5,15 @@ redirect_from:
   - /resume/
 ---
 
-<div class="person pi">
-  <img class="photo" src="{{ site.pi.photo | relative_url }}" alt="{{ site.pi.name }}" width="320" height="320">
+<section class="pi-card">
+  <img class="pi-photo" src="{{ site.pi.photo | relative_url }}" alt="{{ site.pi.name }}" width="400" height="400">
   <div>
-    <p class="person-name">{{ site.pi.name }}</p>
-    <p>{{ site.pi.title }}, Institute for Population and Precision Health, {{ site.pi.employer }}<br>{{ site.pi.note }}</p>
-    <p><a href="mailto:{{ site.pi.email }}">[email]</a> <a href="{{ site.pi.scholar }}">[scholar]</a> <a href="https://github.com/{{ site.pi.github }}">[github]</a></p>
+    <p class="kicker">Principal Investigator</p>
+    <h2>{{ site.pi.name }}</h2>
+    <p>{{ site.pi.title }}, Institute for Population and Precision Health, {{ site.pi.employer }}. {{ site.pi.note }}.</p>
+    <p class="pi-links"><a href="mailto:{{ site.pi.email }}">Email</a><a href="{{ site.pi.scholar }}">Google Scholar</a><a href="https://github.com/{{ site.pi.github }}">GitHub</a></p>
   </div>
-</div>
+</section>
 
 <div class="cv-grid">
 <section markdown="1">

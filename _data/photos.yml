@@ -1,4 +1,6 @@
-# Lab photos, newest first. Shown as a slideshow on Home and People.
+# Lab photos, newest first. Shown as a wide slideshow on Home and People.
+# `src` is the 4:3 original, `wide` a 16:7 crop used for the banners.
 - src: /images/lab/hiking-2026-06-19.jpg
-  caption: "Lab hiking, June 19, 2026"
+  wide: /images/lab/hiking-2026-06-19-wide.jpg
+  caption: "Lab hiking · June 19, 2026"
   alt: "Five lab members smiling in a selfie on a wooded trail, a log cabin behind them"

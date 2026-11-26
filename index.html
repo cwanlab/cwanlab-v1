@@ -6,61 +6,62 @@ redirect_from:
   - /about.html
   - /news/
 ---
-<div class="lockup">
-  {% include logo-cw.svg %}
-  <h1 class="lockup-name"><b class="c">C</b><b class="w">W</b>an Lab <span class="at">@ UChicago</span></h1>
-</div>
-
-<section class="intro">
-  <div class="intro-text">
-    <p>At CWan Lab (pronounced “Wan Lab”), we advance the foundations of <a href="{{ '/research/#graph' | relative_url }}">artificial intelligence</a> and <a href="{{ '/research/#graph' | relative_url }}">machine learning</a> to address key challenges in health, with a focus on <strong>spatially resolved biomedical data, multimodal clinical data, and interpretable models</strong>.</p>
-    <p><span class="lead-in">Our work bridges algorithmic innovation and real-world application.</span> We develop biologically interpretable and clinically impactful models that uncover disease mechanisms and drive personalized medicine.</p>
-    <p>We are part of the Institute for Population and Precision Health at the University of Chicago, with work in venues including AAAI, IJCAI, MICCAI, ICDM, ML4H, <em>The Lancet Oncology</em>, and <em>Briefings in Bioinformatics</em>.</p>
-  </div>
-  {% include carousel.html %}
+<section class="hero">
+  <p class="kicker">{{ site.affiliation }}</p>
+  <h1 class="hero-title">AI for spatial biology<br>and precision medicine.</h1>
+  <a class="hiring" href="{{ '/openings/' | relative_url }}"><span class="pulse" aria-hidden="true"></span>We are recruiting postdocs and research assistants <span aria-hidden="true">→</span></a>
 </section>
 
-<aside class="callout">
-  <strong>We are recruiting:</strong> postdoctoral researchers and research assistants with expertise in AI, large language models, and spatial biology, particularly as applied to cancer and precision health. UChicago students are welcome too. <a href="{{ '/openings/' | relative_url }}">See our openings page.</a>
-</aside>
+{% include carousel.html %}
+
+<section class="about">
+  <p class="about-lead">At CWan Lab (pronounced “Wan Lab”), we advance the foundations of artificial intelligence and machine learning to address key challenges in health, with a focus on spatially resolved biomedical data.</p>
+  <div class="about-more">
+    <p>Our work bridges algorithmic innovation and real-world application, developing biologically interpretable and clinically impactful models that uncover disease mechanisms and drive personalized medicine.</p>
+    <p class="muted">Papers and tutorials at AAAI, IJCAI, KDD, MICCAI, ICDM, ML4H, <em>The Lancet Oncology</em>, <em>JAMA Network Open</em> and <em>Briefings in Bioinformatics</em>.</p>
+  </div>
+</section>
 
 <section>
-  <h2>Research Directions</h2>
-  <p>We build learning methods for biomedical data and carry them through to clinical questions in oncology and dermatology.</p>
+  <div class="sec-head"><h2>Research</h2><a href="{{ '/research/' | relative_url }}">Research and funding →</a></div>
   <div class="directions">
     {% for t in site.data.research.themes %}
-    <div class="direction">
-      <h3><a href="{{ '/research/#' | append: t.id | relative_url }}">{{ t.short_title | default: t.title }}</a></h3>
-      <ul>{% for i in t.home %}<li>{{ i }}</li>{% endfor %}</ul>
-    </div>
+    <a class="direction t-{{ t.id }}" href="{{ '/research/#' | append: t.id | relative_url }}">
+      <span class="direction-fig"><img src="{{ t.image | relative_url }}" alt="" loading="lazy"></span>
+      <span class="direction-num">0{{ forloop.index }}</span>
+      <span class="direction-title">{{ t.short_title }}</span>
+      <span class="direction-blurb">{{ t.blurb }}</span>
+      <span class="direction-tags">{% for i in t.home %}<span>{{ i }}</span>{% endfor %}</span>
+    </a>
     {% endfor %}
   </div>
 </section>
 
-<section id="news">
-  <h2>News</h2>
-  <div class="news-box">
-    {% include news-year.html year="2026" limit=6 %}
-    <details class="news-archive">
-      <summary>More news (2022–2026)</summary>
-      {% include news-year.html year="2026" offset=6 nohead=true %}
-      {% include news-year.html year="2025" %}
-      {% include news-year.html year="2024" %}
-      {% include news-year.html year="2023" %}
-      {% include news-year.html year="2022" %}
+<section>
+  <div class="sec-head"><h2>Recent papers</h2><a href="{{ '/publications/' | relative_url }}">All publications →</a></div>
+  {% assign recent = site.data.publications | where_exp: "p", "p.year >= 2026" | where_exp: "p", "p.figure" %}
+  {% for p in recent limit: 4 %}{% include pub-row.html p=p %}{% endfor %}
+</section>
+
+<section class="news-split" id="news">
+  <div class="news-side">
+    <h2>News</h2>
+    <p class="muted">Papers, talks, funding and people.</p>
+  </div>
+  <div>
+    <ul class="news-list">
+      {% for n in site.data.news limit: 6 %}{% include news-item.html n=n %}{% endfor %}
+    </ul>
+    <details class="news-more">
+      <summary>Show all news</summary>
+      <ul class="news-list">
+        {% for n in site.data.news offset: 6 %}{% include news-item.html n=n %}{% endfor %}
+      </ul>
     </details>
   </div>
 </section>
 
-<section>
-  <h2>Selected Publications <span class="h-note">(Full list on <a href="{{ site.pi.scholar }}">Google Scholar</a>)</span></h2>
-  {% assign recent = site.data.publications | where_exp: "p", "p.year >= 2026" | where_exp: "p", "p.figure" %}
-  {% for p in recent limit: 4 %}{% include pub-row.html p=p %}{% endfor %}
-  <p class="more"><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
-</section>
-
-<section>
-  <h2>Sponsors</h2>
+<section class="sponsors">
   {% assign sponsors = site.data.funding | map: "sponsor" | uniq %}
-  <p>Our work is supported by {{ sponsors | array_to_sentence_string }}. <a href="{{ '/research/#funding' | relative_url }}">Funding details →</a></p>
+  <p><span class="kicker">Supported by</span> {{ sponsors | join: " · " }}</p>
 </section>
