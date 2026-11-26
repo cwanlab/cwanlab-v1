@@ -4,28 +4,38 @@ permalink: /people/
 redirect_from:
   - /group/
 ---
-<h2>Lab Members</h2>
-<div class="members">
-  <div class="member">
-    <img class="photo" src="{{ site.pi.photo | relative_url }}" alt="{{ site.pi.name }}" width="320" height="320">
-    <p class="member-name">{{ site.pi.name | remove: ", PhD" }}</p>
-    <p class="member-role">{{ site.pi.title | replace: " in Precision Health", "" }}</p>
-    <p class="member-links"><a href="{{ '/cv/' | relative_url }}">Bio &amp; CV</a> · <a href="mailto:{{ site.pi.email }}" aria-label="Email">Email</a></p>
+<section class="people-top">
+  {% include carousel.html %}
+  <div class="director">
+    <h2>Principal Investigator</h2>
+    <div class="person">
+      <img class="photo" src="{{ site.pi.photo | relative_url }}" alt="{{ site.pi.name }}" width="400" height="400">
+      <div>
+        <p class="person-name"><a href="{{ '/cv/' | relative_url }}">{{ site.pi.name | remove: ", PhD" }}</a></p>
+        <p class="person-role">{{ site.pi.title }} (2026–)<br>PhD in Computer Science, UT Dallas (2021)</p>
+        <p><strong>Contact:</strong> <a href="mailto:{{ site.pi.email }}">{{ site.pi.email }}</a></p>
+      </div>
+    </div>
   </div>
-  {% assign i = 0 %}
-  {% for g in site.data.members.groups %}{% for m in g.people %}
-  {% assign parts = m.name | split: " " %}{% assign i = i | plus: 1 %}
-  <div class="member">
-    {% if m.photo %}
-    <img class="photo" src="{{ m.photo | relative_url }}" alt="{{ m.name }}" loading="lazy" width="320" height="320">
-    {% else %}
-    <span class="photo initials c{{ i | modulo: 4 }}" aria-hidden="true">{{ parts.first | slice: 0 }}{{ parts.last | slice: 0 }}</span>
-    {% endif %}
-    <p class="member-name">{{ m.name }}</p>
-    <p class="member-role">{{ m.role }}</p>
+</section>
+
+{% assign i = 0 %}
+{% for g in site.data.members.groups %}
+<h2>{{ g.title }}</h2>
+<div class="people-grid">
+  {% for m in g.people %}{% assign parts = m.name | split: " " %}{% assign i = i | plus: 1 %}
+  <div class="person">
+    {% if m.photo %}<img class="photo" src="{{ m.photo | relative_url }}" alt="{{ m.name }}" loading="lazy" width="400" height="400">
+    {% else %}<span class="photo initials c{{ i | modulo: 4 }}" aria-hidden="true">{{ parts.first | slice: 0 }}{{ parts.last | slice: 0 }}</span>{% endif %}
+    <div>
+      <p class="person-name">{{ m.name }}</p>
+      <p class="person-role">{{ m.role }} ({{ m.since }}–){% if m.note %}<br>{{ m.note }}{% endif %}</p>
+      {% if m.interests %}<p><strong>Interests:</strong> {{ m.interests }}</p>{% endif %}
+    </div>
   </div>
-  {% endfor %}{% endfor %}
+  {% endfor %}
 </div>
+{% endfor %}
 
 <h2>Alumni</h2>
 <ul class="alumni">

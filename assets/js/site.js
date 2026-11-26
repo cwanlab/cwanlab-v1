@@ -6,6 +6,23 @@ document.querySelector('.theme-toggle')?.addEventListener('click', () => {
   try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
 });
 
+// Lab photo slideshow (photos come from _data/photos.yml).
+document.querySelectorAll('[data-carousel]').forEach((box) => {
+  const imgs = [...box.querySelectorAll('.carousel-frame img')];
+  if (imgs.length < 2) return;
+  const dots = [...box.querySelectorAll('.carousel-dots span')];
+  const cap = box.querySelector('figcaption');
+  let i = 0;
+  const show = (n) => {
+    i = (n + imgs.length) % imgs.length;
+    imgs.forEach((im, k) => { im.hidden = k !== i; });
+    dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    cap.textContent = imgs[i].dataset.caption;
+  };
+  box.querySelector('.prev').addEventListener('click', () => show(i - 1));
+  box.querySelector('.next').addEventListener('click', () => show(i + 1));
+});
+
 // Logo: a port of the idl.uw.edu mark, which is a tiny d3-force simulation.
 // The cursor is a fixed node with charge -100 (acting between 10 and 40 screen px);
 // every cell is tied to its home spot by a zero-length link of strength 0.3.

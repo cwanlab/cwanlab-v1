@@ -1,3 +1,7 @@
-<footer class="site-foot">
-  <p>© {{ site.time | date: "%Y" }} {{ site.title }} · {{ site.title_zh }} · {{ site.affiliation }}</p>
+<footer class="site-foot wrap">
+  <a class="to-top" href="#top"><span>Back to top</span></a>
+  <div class="foot">
+    <span>{{ site.title }} · {{ site.title_zh }} · {{ site.affiliation }}</span>
+    <span><a href="{{ site.pi.scholar }}">Google Scholar</a> · <a href="https://github.com/{{ site.pi.github }}">GitHub</a> · © {{ site.time | date: "%Y" }}</span>
+  </div>
 </footer>

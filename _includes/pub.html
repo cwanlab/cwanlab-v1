@@ -1,8 +1,0 @@
-{% assign p = include.p %}
-<div class="pub">
-  {% assign link = p.links.Paper | default: p.links.first[1] %}
-  <p class="pub-title">{% if link %}<a href="{{ link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</p>
-  <p class="pub-authors">{{ p.authors | replace: "G. Wan", "<strong>G. Wan</strong>" }}</p>
-  <p class="pub-venue"><strong>{{ p.venue }} {{ p.year }}</strong>{% if p.equal %}<span class="muted"> · *equal contribution</span>{% endif %}</p>
-  {% if p.links %}<p class="pub-links">{% for l in p.links %}<a href="{{ l[1] }}">[{{ l[0] | downcase }}]</a>{% endfor %}</p>{% endif %}
-</div>

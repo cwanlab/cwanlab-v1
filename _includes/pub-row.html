@@ -1,0 +1,16 @@
+{% assign p = include.p %}
+{% assign link = p.links.Paper | default: p.links.first[1] %}
+<article class="paper">
+  <div class="paper-fig">
+    {% if p.figure %}<a href="{{ link }}" tabindex="-1" aria-hidden="true"><img src="{{ p.figure | relative_url }}" alt="" loading="lazy"></a>
+    {% else %}<div class="paper-fig-empty" aria-hidden="true">{{ p.venue }}</div>{% endif %}
+  </div>
+  <div class="paper-body">
+    <h3 class="paper-title">{% if link %}<a href="{{ link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+    {% if p.tags %}<p class="paper-tags">{% for t in p.tags %}<span>{{ t }}</span>{% endfor %}</p>{% endif %}
+    <p class="paper-authors">{{ p.authors | replace: "Guihong C. Wan", "<strong>Guihong C. Wan</strong>" | replace: "Guihong Wan", "<strong>Guihong Wan</strong>" | replace: "G. Wan", "<strong>G. Wan</strong>" }}</p>
+    <p class="paper-venue"><em>{{ p.venue }}, {{ p.year }}</em>{% if p.note %} <span class="paper-note">({{ p.note }})</span>{% endif %}{% if p.equal %} <span class="muted">· *equal contribution</span>{% endif %}</p>
+    {% if p.links %}<p class="paper-links">{% for l in p.links %}{% unless forloop.first %} / {% endunless %}<a href="{{ l[1] }}">{{ l[0] | downcase }}</a>{% endfor %}</p>{% endif %}
+    {% if p.figure_credit %}<p class="paper-credit">{{ p.figure_credit }}</p>{% endif %}
+  </div>
+</article>

@@ -2,9 +2,22 @@
 title: Publications
 permalink: /publications/
 ---
-<p class="muted">Full list on <a href="{{ site.pi.scholar }}">Google Scholar</a>. <strong>G. Wan</strong> marks the PI; * marks equal contribution.</p>
-{% assign by_year = site.data.publications | group_by: "year" | sort: "name" | reverse %}
-{% for yr in by_year %}
-<h2>{{ yr.name }}</h2>
-{% for p in yr.items %}{% include pub.html p=p %}{% endfor %}
+<p class="page-lede">Papers since Dr. Wan joined the University of Chicago in 2026. The full list is on <a href="{{ site.pi.scholar }}">Google Scholar</a>.</p>
+{% assign recent = site.data.publications | where_exp: "p", "p.year >= 2026" | group_by: "year" | sort: "name" | reverse %}
+{% for yr in recent %}
+<h2 class="year">{{ yr.name }}</h2>
+{% for p in yr.items %}{% include pub-row.html p=p %}{% endfor %}
 {% endfor %}
+
+{% assign earlier = site.data.publications | where_exp: "p", "p.year < 2026" | group_by: "year" | sort: "name" | reverse %}
+<details class="earlier">
+  <summary>Earlier publications (2020–2025)</summary>
+  {% for yr in earlier %}
+  <h3>{{ yr.name }}</h3>
+  <ul>
+    {% for p in yr.items %}{% assign link = p.links.Paper | default: p.links.first[1] %}
+    <li>{% if link %}<a href="{{ link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}. {{ p.authors | replace: "G. Wan", "<strong>G. Wan</strong>" }}. <em>{{ p.venue }}</em>, {{ p.year }}.{% for l in p.links %}{% unless forloop.first %} <a href="{{ l[1] }}">[{{ l[0] | downcase }}]</a>{% endunless %}{% endfor %}</li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</details>

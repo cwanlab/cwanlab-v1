@@ -5,10 +5,10 @@ redirect_from:
   - /resume/
 ---
 
-<div class="pi-head">
+<div class="person pi">
   <img class="photo" src="{{ site.pi.photo | relative_url }}" alt="{{ site.pi.name }}" width="320" height="320">
   <div>
-    <p class="member-name">{{ site.pi.name }}</p>
+    <p class="person-name">{{ site.pi.name }}</p>
     <p>{{ site.pi.title }}, Institute for Population and Precision Health, {{ site.pi.employer }}<br>{{ site.pi.note }}</p>
     <p><a href="mailto:{{ site.pi.email }}">[email]</a> <a href="{{ site.pi.scholar }}">[scholar]</a> <a href="https://github.com/{{ site.pi.github }}">[github]</a></p>
   </div>

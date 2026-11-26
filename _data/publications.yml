@@ -1,5 +1,85 @@
 # group: aim | graph | clinical  (see _data/research.yml)
-# "G. Wan" is highlighted automatically. Use * for equal contribution.
+# "G. Wan" / "Guihong Wan" is highlighted automatically. Use * for equal contribution.
+# Papers from 2026 on (since Dr. Wan joined UChicago) are shown with a figure on the
+# Publications page; give them `figure`, `figure_credit` and `tags`.
+
+- group: clinical
+  year: 2026
+  title: "Toward Personalized Sleep Guidance from Wearable Data Using Language Models"
+  authors: "Yusheng Tan*, Running Zhao*, Sofia Angel, Ninghui Hao, Ash Arian, Nikita N. Dulin, Jay Lin, Ou Zhu, Faiza Shaik, Xinxing Yang, Bonnie W. Leung, Katie Roster, Arlene Ruiz de Luzuriaga, Kenneth Lee, Alejandra Lastra, Habibul Ahsan, Guihong C. Wan"
+  equal: true
+  venue: "Machine Learning for Health (ML4H)"
+  tags: [language models, wearables, multi-agent systems]
+  figure: /images/papers/sleep-guidance.jpg
+  figure_credit: 'Fig. 1 from Tan et al., ML4H 2026, arXiv:2609.22463, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.'
+  links:
+    Paper: "https://arxiv.org/abs/2609.22463"
+    Code: "https://github.com/Tuner12/Personalized-Sleep-Guidance"
+- group: aim
+  year: 2026
+  title: "Refining the definition of acral melanoma: Histologic and anatomic considerations"
+  authors: "E. Beagles, S. Khattab, O. Burke, A. Mahajan, D. Ciampa, S. Xu, C. Thang, C. Moseley, C. Lu, S. Goryachev, C. Zheng, L. Huhmann, N. Fillmore, G. Wan, J. Hwang, C. Chang, N. Nguyen, R. Hartman, M. Asgari, M. DeSimone, M. Hurlbert, Y. Semenov"
+  venue: "Journal of the American Academy of Dermatology"
+  tags: [melanoma, dermatopathology]
+  links:
+    Paper: "https://doi.org/10.1016/j.jaad.2026.08.096"
+- group: spatial
+  year: 2026
+  title: "RECON infers regions of interest from H&E images and reconstructs whole-slide molecular profiles at single-cell resolution"
+  authors: "Xinxing Yang, Ninghui Hao, Running Zhao, Sofia Angel, Yusheng Tan, Christine G. Lian, L. Zhou, D. Olson, Kun-Hsing Yu, Arlene Ruiz de Luzuriaga, Guihong Wan"
+  venue: "bioRxiv preprint"
+  tags: [spatial omics, histopathology, single-cell]
+  links:
+    Paper: "https://doi.org/10.64898/2026.08.25.747122"
+- group: spatial
+  year: 2026
+  title: "AI for Precision Medicine: Histopathology-centered Computational Analysis of Spatial Omics: Integration, Mapping, and Foundation Models"
+  authors: "N. Hao, B. Yan, D. Li, X. Wu, C. Zhao, G. Wan"
+  venue: "KDD (Lecture-Style Tutorial)"
+  tags: [spatial omics, tutorial]
+  links:
+    Paper: "https://doi.org/10.1145/3770855.3816454"
+- group: spatial
+  year: 2026
+  title: "Histopathology-centered computational evolution of spatial omics: integration, mapping, and foundation models"
+  authors: "Ninghui Hao*, Xinxing Yang*, Boshen Yan, Dong Li, Junzhou Huang, Xintao Wu, Emily S. Ruiz, Arlene Ruiz de Luzuriaga, Chen Zhao, Guihong Wan"
+  equal: true
+  venue: "Briefings in Bioinformatics"
+  tags: [spatial omics, histopathology, foundation models]
+  figure: /images/papers/spatial-omics.jpg
+  figure_credit: 'Graphical abstract from Hao et al., Briefings in Bioinformatics 2026, doi:10.1093/bib/bbag387, <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. Created with BioRender.com.'
+  links:
+    Paper: "https://doi.org/10.1093/bib/bbag387"
+    arXiv: "https://arxiv.org/abs/2601.07826"
+- group: aim
+  year: 2026
+  title: "A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks"
+  authors: "Dong Li, Guihong Wan, Xintao Wu, Xinyu Wu, Yi He, Zhong Chen, Ajit J. Nirmal, Christine G. Lian, Peter K. Sorger, Yevgeniy R. Semenov, Chen Zhao"
+  venue: "Knowledge and Information Systems"
+  tags: [computational pathology, foundation models, survey]
+  figure: /images/papers/cpath-survey.jpg
+  figure_credit: 'Fig. 2 from Li et al., Knowledge and Information Systems 2026, doi:10.1007/s10115-026-02806-1, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.'
+  links:
+    Paper: "https://doi.org/10.1007/s10115-026-02806-1"
+    arXiv: "https://arxiv.org/abs/2501.15724"
+- group: clinical
+  year: 2026
+  title: "Systemic Glucocorticoid Immunosuppression and Survival Among Immune Checkpoint Inhibitor Recipients"
+  authors: "Guihong Wan, Nga Nguyen, Charles Lu, Sara Khattab, Boshen Yan, Munachimso Amadife, Bonnie W. Leung, Wenxin Chen, Ahmad Rajeh, Kimberly Tang, Christopher Thang, Genevieve Boland, Kerry L. Reynolds, Kun-Hsing Yu, Alexander Gusev, Nicole R. LeBoeuf, Shawn G. Kwatra, Yevgeniy R. Semenov"
+  venue: "JAMA Network Open"
+  tags: [immunotherapy, survival analysis, real-world data]
+  figure: /images/papers/glucocorticoids.jpg
+  figure_credit: 'Fig. 1 from Wan et al., JAMA Network Open 2026;9(5):e2614323, doi:10.1001/jamanetworkopen.2026.14323, <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.'
+  links:
+    Paper: "https://doi.org/10.1001/jamanetworkopen.2026.14323"
+- group: aim
+  year: 2026
+  title: "Impact of clinicopathological features on prognosis of thin melanomas: a retrospective cohort analysis"
+  authors: "E. Beagles, S. Khattab, O. Burke, N. Nguyen, C. Chang, K. Roster, A. Rajeh, H. Rashdan, C. Moseley, B. Yan, A. Stagner, M. DeSimone, G. Wan, Y. Semenov"
+  venue: "British Journal of Dermatology"
+  tags: [melanoma, prognosis]
+  links:
+    Paper: "https://doi.org/10.1093/bjd/ljag034"
 
 - group: aim
   year: 2024

@@ -1,0 +1,10 @@
+{% assign y = include.year %}
+{% assign items = site.data.news | where_exp: "n", "n.date contains y" %}
+{% assign off = include.offset | default: 0 %}
+{% assign lim = include.limit | default: 100 %}
+<div class="news-year">
+  {% unless include.nohead %}<h3>{{ y }}</h3>{% endunless %}
+  {% for n in items offset: off limit: lim %}
+  <p class="news-line"><span class="news-date">{{ n.date | remove: y | remove: "," | strip }} ~</span> {{ n.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+  {% endfor %}
+</div>

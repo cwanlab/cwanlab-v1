@@ -30,18 +30,18 @@ pi:
 nav:
   - title: Home
     url: /
-  - title: News
-    url: /news/
   - title: Research
     url: /research/
-  - title: Talks
-    url: /talks/
-  - title: People
-    url: /people/
   - title: Publications
     url: /publications/
-  - title: Contact
-    url: /contact/
+  - title: People
+    url: /people/
+  - title: Talks
+    url: /talks/
+  - title: Openings
+    url: /openings/
+  - title: Dr. Wan
+    url: /cv/
 
 markdown: kramdown
 kramdown:
