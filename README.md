@@ -22,7 +22,7 @@ Almost everything lives in `_data/` — edit the YAML and push.
 | News (home shows the latest 6; "Show all news" opens the rest) | `_data/news.yml` |
 | Lab photos (banner on Home and People; `wide` is a 16:7 crop, `src` the 4:3 photo used on phones) | `_data/photos.yml`, images in `images/lab/` |
 | Publications (2026+ get `figure`, `figure_credit`, `tags`; figures in `images/papers/`) | `_data/publications.yml` |
-| Research themes (home cards use `short_title`, `home`, `image`) | `_data/research.yml` |
+| Research themes (`image` = close-up for Home, `figure` = full figure for the Research page; papers join a theme via `theme:` in publications.yml) | `_data/research.yml` |
 | Members & alumni | `_data/members.yml` (add `photo:` to replace initials) |
 | Funding (shown on Research; sponsors line on Home) | `_data/funding.yml` |
 | Talks & teaching | `talks.md` |

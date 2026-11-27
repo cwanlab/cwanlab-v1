@@ -24,23 +24,10 @@ redirect_from:
 
 <section>
   <div class="sec-head"><h2>Research</h2><a href="{{ '/research/' | relative_url }}">Research and funding →</a></div>
-  <div class="directions">
-    {% for t in site.data.research.themes %}
-    <a class="direction t-{{ t.id }}" href="{{ '/research/#' | append: t.id | relative_url }}">
-      <span class="direction-fig"><img src="{{ t.image | relative_url }}" alt="" loading="lazy"></span>
-      <span class="direction-num">0{{ forloop.index }}</span>
-      <span class="direction-title">{{ t.short_title }}</span>
-      <span class="direction-blurb">{{ t.blurb }}</span>
-      <span class="direction-tags">{% for i in t.home %}<span>{{ i }}</span>{% endfor %}</span>
-    </a>
-    {% endfor %}
+  <div class="themes">
+    {% for t in site.data.research.themes %}{% include theme-panel.html t=t n=forloop.index %}{% endfor %}
   </div>
-</section>
-
-<section>
-  <div class="sec-head"><h2>Recent papers</h2><a href="{{ '/publications/' | relative_url }}">All publications →</a></div>
-  {% assign recent = site.data.publications | where_exp: "p", "p.year >= 2026" | where_exp: "p", "p.figure" %}
-  {% for p in recent limit: 4 %}{% include pub-row.html p=p %}{% endfor %}
+  <p class="all-pubs"><a href="{{ '/publications/' | relative_url }}">All publications, with figures →</a></p>
 </section>
 
 <section class="news-split" id="news">

@@ -1,0 +1,18 @@
+{% assign t = include.t %}
+{% assign papers = site.data.publications | where: "theme", t.id %}
+{% if include.full %}{% assign lim = 20 %}{% assign img = t.figure %}{% assign name = t.title %}{% else %}{% assign lim = 3 %}{% assign img = t.image %}{% assign name = t.short_title %}{% endif %}
+<article class="theme-panel t-{{ t.id }}{% if include.full %} full{% endif %}" id="{{ t.id }}">
+  <div class="theme-fig"><img src="{{ img | relative_url }}" alt="" loading="lazy"></div>
+  <div class="theme-body">
+    <p class="theme-num">0{{ include.n }}</p>
+    <h3 class="theme-title">{% if include.full %}{{ name }}{% else %}<a href="{{ '/research/#' | append: t.id | relative_url }}">{{ name }}</a>{% endif %}</h3>
+    <p class="theme-blurb">{{ t.blurb }}</p>
+    <p class="theme-tags">{% if include.full %}{% for i in t.items %}<span>{{ i }}</span>{% endfor %}{% else %}{% for i in t.home %}<span>{{ i }}</span>{% endfor %}{% endif %}</p>
+    <p class="theme-label">{% if include.full %}Key papers{% else %}Latest papers{% endif %}</p>
+    <ul class="theme-papers">
+      {% for p in papers limit: lim %}{% assign link = p.links.Paper | default: p.links.first[1] %}
+      <li><a href="{{ link }}">{{ p.title }}</a><span>{{ p.venue }} {{ p.year }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</article>

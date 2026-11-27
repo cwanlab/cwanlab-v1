@@ -4,19 +4,22 @@ permalink: /research/
 redirect_from:
   - /funding/
 ---
-{% for t in site.data.research.themes %}
-<section class="theme" id="{{ t.id }}">
-  <h2>{{ t.title }}</h2>
-  <p>{{ t.blurb }}</p>
-  <ul>{% for i in t.items %}<li>{{ i }}</li>{% endfor %}</ul>
-</section>
-{% endfor %}
+<p class="page-lede">{{ site.tagline }}. Each direction below shows a figure from one of our papers and the papers behind it.</p>
 
-<h2 id="funding">Funding</h2>
-{% for f in site.data.funding %}
-<div class="fund">
-  <p class="fund-title"><strong>{{ f.sponsor }}</strong> · {{ f.award }}{% if f.active %} <span class="badge">Active</span>{% endif %}</p>
-  <p>{{ f.project }}</p>
-  <p class="muted">{{ f.role }} · {{ f.period }}</p>
+<div class="themes full">
+  {% for t in site.data.research.themes %}{% include theme-panel.html t=t n=forloop.index full=true %}{% endfor %}
 </div>
-{% endfor %}
+
+<section id="funding">
+  <h2>Funding</h2>
+  <div class="funds">
+    {% for f in site.data.funding %}
+    <div class="fund">
+      <p class="fund-sponsor">{{ f.sponsor }}{% if f.active %} <span class="badge">Active</span>{% endif %}</p>
+      <p class="fund-award">{{ f.award }}</p>
+      <p class="fund-project">{{ f.project }}</p>
+      <p class="muted">{{ f.role }} · {{ f.period }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
